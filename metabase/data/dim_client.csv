@@ -1,0 +1,15 @@
+client_id,client_name,client_group,client_tier,home_timezone
+1,Rakuza Commerce,Strategic,Enterprise,Asia/Seoul
+2,Vendora Marketplace,Standard,Enterprise,America/Sao_Paulo
+3,Zenkart,Standard,Enterprise,Asia/Jakarta
+4,Payhub,Standard,Growth,UTC
+5,Mercora,Standard,Growth,Europe/Moscow
+6,Lumina Retail,Standard,Growth,Asia/Singapore
+7,Skyfare,Standard,Growth,Asia/Bangkok
+8,Nomadly,Standard,Growth,Europe/Paris
+9,Kiosko,Standard,Startup,America/Santiago
+10,Bytecart,Standard,Startup,UTC
+11,FreshRoute,Standard,Startup,Asia/Jakarta
+12,GlobalWear,Standard,Startup,Europe/Berlin
+13,Tokopanda,Standard,Startup,Asia/Jakarta
+14,Pixelbay,Standard,Startup,UTC

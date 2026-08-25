@@ -1,0 +1,90 @@
+name: job-tracker
+
+services:
+  postgres_source:
+    image: postgres:16-alpine
+    container_name: job_tracker_db
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: ${SOURCE_POSTGRES_DB}
+      POSTGRES_USER: ${SOURCE_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${SOURCE_POSTGRES_PASSWORD}
+      APP_DB_USER: ${SOURCE_APP_DB_USER}
+      APP_DB_PASSWORD: ${SOURCE_APP_DB_PASSWORD}
+
+    # Bind to localhost only — never expose postgres to 0.0.0.0
+    ports:
+      - "127.0.0.1:${SOURCE_POSTGRES_PORT:-5432}:5432"
+
+    volumes:
+      - postgres_source_data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d:ro
+
+    # Minimal tuning without a separate conf file
+    command: >
+      postgres
+        -c max_connections=50
+        -c log_min_duration_statement=1000
+
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${SOURCE_POSTGRES_USER} -d ${SOURCE_POSTGRES_DB}",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+    networks:
+      - db_net
+
+  postgres_destination:
+    image: postgres:16-alpine
+    container_name: revenue_tracker_db
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: ${DESTINATION_POSTGRES_DB}
+      POSTGRES_USER: ${DESTINATION_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${DESTINATION_POSTGRES_PASSWORD}
+      APP_DB_USER: ${DESTINATION_APP_DB_USER}
+      APP_DB_PASSWORD: ${DESTINATION_APP_DB_PASSWORD}
+
+    # Bind to localhost only — never expose postgres to 0.0.0.0
+    ports:
+      - "127.0.0.1:${DESTINATION_POSTGRES_PORT:-5433}:5433"
+
+    volumes:
+      - postgres_destination_data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d:ro
+
+    # Minimal tuning without a separate conf file
+    command: >
+      postgres
+        -c max_connections=50
+        -c log_min_duration_statement=1000
+
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${DESTINATION_POSTGRES_USER} -d ${DESTINATION_POSTGRES_DB}",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+    networks:
+      - db_net
+
+volumes:
+  postgres_source_data:
+  postgres_destination_data:
+
+networks:
+  db_net:
+    driver: bridge

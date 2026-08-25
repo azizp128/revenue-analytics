@@ -1,0 +1,70 @@
+product_id,product_name,service_type,invoice_category,action,billing_unit,list_usd_rate
+1,Rakuza Product Detail,Scraper,Rakuza/Retail,rakuza-pdp,request,0.00300000
+2,Rakuza Mobile PDP,Scraper,Rakuza/Retail,rakuza-mobile-pdp,request,0.00300000
+3,Rakuza Product List,Scraper,Rakuza/Retail,rakuza-plp,request,0.00150000
+4,Rakuza Search Rank,Scraper,Rakuza Search,rakuza-search,request,0.00120000
+5,Rakuza Deal Tracker,Scraper,Rakuza Promo,rakuza-deal,request,0.00125000
+6,Rakuza Seller Index,Scraper,Rakuza Marketplace,rakuza-seller,request,0.00090000
+7,Rakuza BrandStore Product,Scraper,Rakuza Promo,rakuza-brand-store,request,0.00125000
+8,Rakuza Review Feed,Scraper,Rakuza Reviews,rakuza-review,request,0.00060000
+9,Rakuza Coupon Feed,Scraper,Rakuza Promo,rakuza-coupon,request,0.00060000
+10,Rakuza Sitemap Crawl,Scraper,Rakuza Discovery,rakuza-sitemap,request,0.00028000
+11,Rakuza Account Pool,Account,Account Pool KR,rakuza-account-pool,request,0.00020000
+12,Vendora Product Detail,Scraper,Vendora/Retail,vendora-pdp,request,0.00180000
+13,Proxy Vendora - Tier 1,Proxy,Proxy Gateway,proxy-vendora-t1,MB,0.00045000
+14,Vendora MX Product List,Scraper,Vendora/Retail LATAM,vendora-mx-plp,request,0.00150000
+15,Proxy Vendora - Tier 2,Proxy,Proxy Edge,proxy-vendora-t2,MB,0.00050000
+16,Vendora Seller Index,Scraper,Vendora Marketplace,vendora-seller,request,0.00090000
+17,Vendora Checkout Feed,Payments,Payments/Vendora,vendora-checkout,request,0.00028000
+18,Vendora Category Tree,Scraper,Vendora Discovery,vendora-category,request,0.00090000
+19,Vendora Review Feed,Scraper,Vendora Reviews,vendora-review,request,0.00060000
+20,Zenkart Product Detail,Scraper,Zenkart/Retail,zenkart-pdp,request,0.00180000
+21,Proxy Zenkart - Tier 1,Proxy,Proxy Gateway,proxy-zenkart-t1,MB,0.00048000
+22,Zenkart Food Delivery Fee,Scraper,Food Regular Zenkart,zenkart-food,request,0.00110000
+23,Zenkart SG Product List,Scraper,Zenkart/Retail SG,zenkart-sg-plp,request,0.00150000
+24,Zenkart Transport Fare,Scraper,Transport,zenkart-transport,request,0.00090000
+25,Proxy Zenkart - Tier 2,Proxy,Proxy Edge,proxy-zenkart-t2,MB,0.00050000
+26,Zenkart BrandStore Product,Scraper,Zenkart Promo,zenkart-brand-store,request,0.00125000
+27,Zenkart Voucher Feed,Scraper,Zenkart Promo,zenkart-voucher,request,0.00060000
+28,Zenkart Account Pool,Account,Account Pool SEA,zenkart-account-pool,request,0.00020000
+29,Payhub/Retail,Payments,Payments/Retail,payhub-retail,request,0.00028000
+30,Payhub Subscription Sync,Payments,Payments/Subscription,payhub-subscription,request,0.00028000
+31,Payhub Payout Ledger,Payments,Payments/Payout,payhub-payout,request,0.00032000
+32,Payhub Dispute Feed,Payments,Payments/Dispute,payhub-dispute,request,0.00040000
+33,Payhub Account Pool,Account,Account Pool Global,payhub-account-pool,request,0.00020000
+34,Mercora Product Detail,Scraper,Mercora/Retail,mercora-pdp,request,0.00180000
+35,Mercora Price Monitor,Scraper,Mercora Pricing,mercora-price,request,0.00120000
+36,Proxy Mercora - Tier 1,Proxy,Proxy Gateway,proxy-mercora-t1,MB,0.00045000
+37,Mercora Merchant Seller,Scraper,Mercora Marketplace,mercora-seller,request,0.00090000
+38,Mercora Review Feed,Scraper,Mercora Reviews,mercora-review,request,0.00060000
+39,Mercora Category Tree,Scraper,Mercora Discovery,mercora-category,request,0.00090000
+40,Lumina Product Detail,Scraper,Lumina/Retail,lumina-pdp,request,0.00180000
+41,Proxy Lumina - Tier 1,Proxy,Proxy Gateway,proxy-lumina-t1,MB,0.00048000
+42,Lumina Home Product List,Scraper,Lumina Home,lumina-home-plp,request,0.00150000
+43,Lumina Checkout Feed,Payments,Payments/Lumina,lumina-checkout,request,0.00028000
+44,Lumina Stock Monitor,Scraper,Lumina Inventory,lumina-stock,request,0.00090000
+45,Lumina Review Feed,Scraper,Lumina Reviews,lumina-review,request,0.00060000
+46,Skyfare Fare Search,Scraper,Skyfare/Flights,skyfare-fare,request,0.00250000
+47,Skyfare Hotel Bundle,Scraper,Skyfare Ancillary,skyfare-bundle,request,0.00120000
+48,Skyfare Seatmap,Scraper,Skyfare/Flights,skyfare-seat,request,0.00090000
+49,Skyfare Baggage Fee,Scraper,Skyfare Ancillary,skyfare-baggage,request,0.00060000
+50,Nomadly Hotel Rate,Scraper,Nomadly/Hotels,nomadly-hotel,request,0.00220000
+51,Proxy Nomadly - Tier 1,Proxy,Proxy Edge,proxy-nomadly-t1,MB,0.00050000
+52,Nomadly Prorate,Scraper,Nomadly Prorate,nomadly-prorate,request,0.00090000
+53,Nomadly Review Feed,Scraper,Nomadly Reviews,nomadly-review,request,0.00060000
+54,Kiosko Product Detail,Scraper,Kiosko/Retail,kiosko-pdp,request,0.00180000
+55,Proxy Kiosko - Tier 1,Proxy,Proxy Gateway,proxy-kiosko-t1,MB,0.00045000
+56,Kiosko PE Product List,Scraper,Kiosko/Retail LATAM,kiosko-pe-plp,request,0.00150000
+57,Bytecart SERP,Scraper,Bytecart Search,bytecart-serp,request,0.00028000
+58,Proxy Bytecart - Tier 1,Proxy,Proxy Edge,proxy-bytecart-t1,MB,0.00050000
+59,Bytecart Account Pool,Account,Account Pool Global,bytecart-account-pool,request,0.00020000
+60,FreshRoute Menu Feed,Scraper,Food Regular FreshRoute,freshroute-menu,request,0.00110000
+61,FreshRoute MY Menu Feed,Scraper,Food Regular FreshRoute,freshroute-my-menu,request,0.00110000
+62,FreshRoute Delivery Fee,Scraper,Logistic,freshroute-delivery,request,0.00090000
+63,GlobalWear Product Detail,Scraper,GlobalWear/Retail,globalwear-pdp,request,0.00180000
+64,GlobalWear EU Product List,Scraper,GlobalWear/Retail EU,globalwear-eu-plp,request,0.00150000
+65,Proxy GlobalWear - Tier 1,Proxy,Proxy Gateway,proxy-globalwear-t1,MB,0.00048000
+66,Tokopanda Product Detail,Scraper,Tokopanda/Retail,tokopanda-pdp,request,0.00180000
+67,Tokopanda Account Pool,Account,Account Pool SEA,tokopanda-account-pool,request,0.00020000
+68,Pixelbay Asset Index,Scraper,Pixelbay Catalog,pixelbay-asset,request,0.00090000
+69,Pixelbay Account Pool,Account,Account Pool Global,pixelbay-account-pool,request,0.00020000

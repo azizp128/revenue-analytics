@@ -1,0 +1,92 @@
+services:
+  postgres_dataforge:
+    image: postgres:18.1
+    container_name: postgres_dataforge
+    hostname: dataforge
+    restart: unless-stopped
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: dataforge
+      POSTGRES_USER_FILE: /run/secrets/dataforge_db_user
+      POSTGRES_PASSWORD_FILE: /run/secrets/dataforge_db_password
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+    volumes:
+      - postgresql_dataforge_data:/var/lib/postgresql
+    networks:
+      - metabase_net
+    secrets:
+      - dataforge_db_password
+      - dataforge_db_user
+  postgres_metabase:
+    image: postgres:18.1
+    container_name: postgres_metabase
+    hostname: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: metabase
+      POSTGRES_USER_FILE: /run/secrets/metabase_db_user
+      POSTGRES_PASSWORD_FILE: /run/secrets/metabase_db_password
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+    volumes:
+      - postgresql_metabase_data:/var/lib/postgresql
+    networks:
+      - metabase_net
+    secrets:
+      - metabase_db_password
+      - metabase_db_user
+  metabase:
+    image: metabase/metabase:v0.63.14
+    container_name: metabase
+    hostname: metabase
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    environment:
+      MB_SITE_NAME: "DataForge Dashboard Analytics"
+      MB_SITE_URL: http://localhost:3000
+      MB_DB_HOST: postgres
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: metabase
+      MB_DB_PORT: 5432
+      MB_DB_USER_FILE: /run/secrets/metabase_db_user
+      MB_DB_PASS_FILE: /run/secrets/metabase_db_password
+      MB_PROMETHEUS_SERVER_PORT: 9191
+    env_file:
+      - metabase-dev.env
+    volumes:
+      - metabase_data:/var/lib/metabase/data
+      - metabase_plugins:/var/lib/metabase/plugins
+    healthcheck:
+      test: curl --fail -I http://localhost:3000/api/health || exit 1
+      interval: 15s
+      retries: 5
+      start_period: 10s
+      timeout: 5s
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - metabase_net
+    depends_on:
+      - postgres_metabase
+    secrets:
+      - metabase_db_password
+      - metabase_db_user
+volumes:
+  postgresql_metabase_data:
+  postgresql_dataforge_data:
+  metabase_data:
+  metabase_plugins:
+networks:
+  metabase_net:
+secrets:
+  metabase_db_password:
+    file: ./secrets/metabase_db_password.txt
+  metabase_db_user:
+    file: ./secrets/metabase_db_user.txt
+  dataforge_db_password:
+    file: ./secrets/dataforge_db_password.txt
+  dataforge_db_user:
+    file: ./secrets/dataforge_db_user.txt
